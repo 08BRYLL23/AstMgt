@@ -48,6 +48,9 @@
                     <span class="badge bg-warning"><%=pendingPurchaseRequests + approvedPurchaseRequests + expiringEquipment + expectedDelivery + rejectedPurchaseRequests%></span>
                 </a>
                 <ul class="dropdown-menu extended notification">
+                    <%
+                    Employee user = (Employee) session.getAttribute("user");
+                    %>
                     <div class="notify-arrow notify-arrow-yellow"></div>
                     <li>
                         <p class="yellow">You have <%=pendingPurchaseRequests + approvedPurchaseRequests + expiringEquipment%> new notifications</p>
@@ -93,7 +96,6 @@
                         </a>
                     </li>
                     <%
-                        Employee user = (Employee) session.getAttribute("user");
                         if (user.UserLevel.equals("Inspector")) {
                     %>
                     <li>
