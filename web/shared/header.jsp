@@ -55,36 +55,72 @@
                     <li>
                         <p class="yellow">You have <%=pendingPurchaseRequests + approvedPurchaseRequests + expiringEquipment%> new notifications</p>
                     </li>
+                    <%
+                        if (user.UserLevel.equals("Finance") || user.UserLevel.equals("Director") || user.UserLevel.equals("Division Chief")|| user.UserLevel.equals("Staff") || user.UserLevel.equals("Custodian")) {
+                    %>
                     <li>
                         <a href="/AMS/HomeServlet/PPR">
                             <%=pendingPurchaseRequests%> Pending Purchase Requests
                         </a>
                     </li>
+                    <% 
+                    }
+                    %>
+                    <%
+                        if (user.UserLevel.equals("Finance") || user.UserLevel.equals("Director") || user.UserLevel.equals("Division Chief") || user.UserLevel.equals("Custodian") ) {
+                    %>
                     <li>
                         <a href="/AMS/HomeServlet/APR">
                             <%=approvedPurchaseRequests%> Approved PR But No PO
                         </a>
                     </li>
+                    <% 
+                    }
+                    %>
+                    <%
+                        if (user.UserLevel.equals("Finance") || user.UserLevel.equals("Director") || user.UserLevel.equals("Chief Inspector") || user.UserLevel.equals("Inspector") || user.UserLevel.equals("Custodian")) {
+                    %>
                     <li>
                         <a href="/AMS/HomeServlet/EE">
                             <%=expiringEquipment%> Equipments Expiring
                         </a>
                     </li>
+                    <% 
+                    }
+                    %>
+                    <%
+                        if (user.UserLevel.equals("Finance") || user.UserLevel.equals("Director") || user.UserLevel.equals("Division Chief")|| user.UserLevel.equals("Staff") || user.UserLevel.equals("Custodian")) {
+                    %>
                     <li>
                         <a href="/AMS/HomeServlet/RPR">
                             <%=rejectedPurchaseRequests%> Rejected Purchase Requests
                         </a>
                     </li>
+                    <% 
+                    }
+                    %>
+                    <%
+                        if (user.UserLevel.equals("Finance") || user.UserLevel.equals("Director") || user.UserLevel.equals("Chief Inspector")|| user.UserLevel.equals("Inspector") || user.UserLevel.equals("Custodian")) {
+                    %>
                     <li>
                         <a href="/AMS/HomeServlet/UED">
                             <%=expectedDelivery%> Upcoming Equipment Deliveries
                         </a>
                     </li>
+                    <% 
+                    }
+                    %>
+                    <%
+                        if (user.UserLevel.equals("Custodian")) {
+                    %>
                     <li>
                         <a href="/AMS/HomeServlet/RE">
                             <%=retiringEmployees%> Retiring Employee
                         </a>
                     </li>
+                    <% 
+                    }
+                    %>
                     <li>
                         <a href="/AMS/HomeServlet/PA">
                             <%=pendingInspections%> Pending Acknowledgment
